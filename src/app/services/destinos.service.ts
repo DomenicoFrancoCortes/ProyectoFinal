@@ -72,7 +72,7 @@ export class DestinosService {
 
   obtenerDestinos() {
     console.log('haciendo GET a API destinos');
-    return this.http.get('https://mt7togvmba.execute-api.us-east-1.amazonaws.com/Desa1');
+    return this.http.get('https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino');
   }
   
 }

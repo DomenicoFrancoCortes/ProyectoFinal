@@ -43,5 +43,9 @@ export class DestinosComponent implements OnInit {
     console.log("Destino elegido: " + destinoId);
     this.destinosService.lugarElegido = destinoId;
     this.router.navigate(['/destino']);
-  }  
+  }
+  
+ 
 }
+
+

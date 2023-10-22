@@ -1,3 +1,6 @@
+main{
+    width: 100%;
+}
 h1 {
     text-align: center;
 }
@@ -15,7 +18,7 @@ div.estaciones {
     transition: all 400ms ease;
 }
 */
-.polaroid {
+/* .polaroid {
     background-color: #fff;
     box-shadow: 0 3px 4px #0003, 0 6px 20px #00000030;
     display: block;
@@ -44,9 +47,29 @@ div.estaciones {
 .polaroidVer:hover{
     box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
     transform: translateY(-3%);
+} */
+.polaroid {
+    background-color: #fff;
+    box-shadow: 0 3px 4px #0003, 0 6px 20px #00000030;
+
+    transition: all .4s ease;
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+    cursor: pointer;   
+}
+.polaroid:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+}
+.lead{
+    display: flex;
+    height: 80%;
+    align-items: center;
+    justify-content: center;
 }
 
-img {
+.imagen {
     width: 100%;
 }
 
