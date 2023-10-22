@@ -1,0 +1,76 @@
+
+.contenedor{
+    font-family: 'Poppins', sans-serif;
+    
+}
+h1{
+    text-align: center;
+    
+    text-transform: uppercase;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+  .flex{
+    width: 100%;
+  }
+
+  .tarjeta {
+    background-color: #cae0fc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    margin: 0px 20px 10px;
+    text-align: center;
+    /* width: 100%; */
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .tarjeta img{
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    transition: all 400ms ease;
+  }
+  .tarjeta img:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+  }
+
+  .tarjeta-contenido {
+    width: 65%;
+    padding: 15px 20px 10px;
+    margin: auto;
+  }
+
+  h1 {
+    margin: 20px;
+  }
+
+  button {
+    margin-left: 20px;
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    background-image: linear-gradient(to right,  #54adff,#4d9ce6,#4996dd);
+    color: black;
+    transition: .5s;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    border: none;
+  }
+  button:hover{
+    color: #fff;
+  }
+
+  @media (max-width: 400px) {
+    .tarjeta-contenido{
+        display: none;
+    }
+  }
+  @media (max-width: 415px) {
+    .tarjeta-contenido{
+        display: none;
+    }
+  }

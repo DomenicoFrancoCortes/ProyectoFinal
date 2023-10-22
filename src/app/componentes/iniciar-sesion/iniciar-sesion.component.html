@@ -1,0 +1,53 @@
+<div class="contenedor" *ngIf="user">
+    <div>
+        <div class="body">
+            <!-- inicio de sesion -->
+            <div *ngIf="!isForgotPassword">
+                <div class="header">
+                    <img class="logo" src="../../../assets/img/1.png" alt="logo-app">
+                    <h2>Bienvenido</h2>
+                    <h4>Inicia sesion</h4>
+                </div>
+                <div class="form">
+                    <input type="email" name="email" placeholder="Email" [(ngModel)]="user.email">
+                    <input [type]="user.showPassword ?  'text' : 'password'" name="password" placeholder="Contraseña"
+                        [(ngModel)]="user.password">
+                </div>
+                <div style="font-size: 12px; margin-top: 6px;">
+                    <input type="checkbox" [checked]="user.showPassword"
+                        (change)="user.showPassword = !user.showPassword">
+                    mostrar contraseña
+                </div>
+
+              
+                    <p class="forgot-password" (click)="forgotPassWordClicked()"> <a>Olvido su contraseña </a></p>
+
+                <p class="forgot-password">No tienes cuenta <a href="/crear-usuario">Crea tu usuario</a></p>
+                <button class="btn" (click)="signInWithCognito()">Ingresar</button>
+            </div>
+
+         
+            <!-- olvido su contraseña -->
+            <div *ngIf="isForgotPassword">
+                <img class="logo-forgot" src="../../../assets/img/confused.png" alt="logo-forgot">
+                <h2>Recuperar cuenta</h2>
+                <h4>EL codigo de verificacion se va a enviar al mail: <strong>{{user.email}}</strong></h4>
+                <div class="form">
+                    <input style="width: 80%;" type="text" placeholder="Ingrese el codigo de verificacion"
+                        name="verificationCode" [(ngModel)]="user.code">
+                    <input style="width: 80%;" [type]="user.showPassword ?  'text' : 'password'" name="password"
+                        placeholder="Ingrese una nueva Contraseña" [(ngModel)]="newPassword">
+                    <div style="font-size: 12px; margin-top: 6px; display: inline-flex; align-items: center;">
+                        <input style="margin-right: 8px;" type="checkbox" [checked]="user.showPassword"
+                            (change)="user.showPassword = !user.showPassword">
+                        mostrar contraseña
+                    </div>
+                    <button class="btn"
+                        style="display: flex; margin: auto; justify-content: center; align-items: center;"
+                        (click)="newPasswordSubmit()">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <app-mensaje-modelo *ngIf="showAlert" (modalClose)="showAlert = false" [message]="alertMessage"></app-mensaje-modelo> -->

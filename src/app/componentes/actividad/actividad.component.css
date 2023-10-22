@@ -1,0 +1,80 @@
+p,
+h1 {
+    text-align: center;
+}
+
+img {
+    width: 280px;
+    margin-top: 15px;
+    margin-right: 10px;
+    margin-left: 5px;
+    box-shadow: 1px 10px 25px rgb(0 0 0 / 0.2);
+    border-radius: 2px;
+}
+
+.btn {
+    width: 120px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right,  #54adff,#4d9ce6,#4996dd);
+    background-size: 200%;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    cursor: pointer;
+}
+
+.btn b {
+    text-decoration: none;
+    color: black;
+    transition: .5s;
+}
+
+.btn b:hover {
+    background-position: right;
+    color: #fff;
+}
+
+.boton {
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+}
+.imagenes{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    
+}
+.img:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+}
+.img{
+    transition: all .4s ease;
+}
+
+@media (max-width: 400px) {
+    footer p a {
+        color: #4996dd;
+    }
+}
+
+@media (max-width: 415px) {
+    footer p a {
+        color: #4996dd;
+    }
+}
+
+@media (max-width: 280px) {
+    footer p a {
+        color: #4996dd;
+    }
+}

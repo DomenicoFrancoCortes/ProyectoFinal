@@ -1,0 +1,11 @@
+<div class="contenedor">
+    
+
+    <div class="block">
+        
+        <ul class="list">
+            <li *ngFor="let lugar of lugares" (click)="irDestino(lugar.id)">{{ lugar.nombre }}</li>
+        </ul>
+        <img src="../../../assets/img/Post.jpg" alt="">
+    </div>
+</div>

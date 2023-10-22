@@ -1,0 +1,29 @@
+<h1>Favoritos</h1>
+
+<div class="container">
+    <table class="table1">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-active" *ngFor="let fav of ids">
+                <th scope="row">{{fav}}</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table2">
+        <thead>
+            <tr>
+                <th scope="col">NOMBRE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-active" *ngFor="let nom of nombres">
+                <th scope="row">{{nom}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>

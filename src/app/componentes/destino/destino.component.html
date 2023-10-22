@@ -1,0 +1,29 @@
+<div class="contenedor">
+<h1>{{destino[0].nombre}}</h1>
+
+<p><b>Descripcion: </b> {{destino[0].descripcion}}</p>
+
+<p><b>Actividades: </b></p>
+
+<div class="block">
+    <ul class="list">
+        <li *ngFor="let act of destino[0].actividades" (click)="irActividad(act.id)">{{ act.nombre }}</li>
+    </ul>
+</div>
+
+<p><b>Eventos: </b></p>
+<div class="block">
+    <ul class="list">
+        <li *ngFor="let eve of destino[0].eventos" (click)="irEvento(eve.id)">{{ eve.nombre }}</li>
+    </ul>
+</div>
+<div class="imagenes">
+    
+    <img class="img" *ngFor="let img of imagenes" src={{img}} alt="Destino">
+</div>
+<footer>
+    
+    <p>Derechos de autor &copy; 2023 | <a href="/nextrip">NexTrip</a></p>
+
+</footer>
+</div>

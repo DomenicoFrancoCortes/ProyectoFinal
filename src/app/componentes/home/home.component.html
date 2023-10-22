@@ -1,0 +1,44 @@
+<h1>Estaciones</h1>
+<div class="navigation">
+    <p class="nombreUsuario"><b>BIENVENIDO: </b> {{nombreUsuario}} </p>
+    <div style="    margin-left: 15px">
+        <button class="btn"><a href="/favoritos">Favoritos</a></button>
+    </div>
+    <a class="button">
+        
+        <div class="logout" (click)="signOutCognito()">
+            Cerrar sesion
+        </div>
+    </a>
+</div>
+
+<div class="estaciones" (click)="irDestinos('V')">
+    <div class="polaroidVer">
+        <img src="https://concepto.de/wp-content/uploads/2018/08/verano1-e1535637769656.jpg">
+        <div class="contenedor" > Verano </div>
+    </div>
+
+    <div class="polaroid" (click)="irDestinos('I')">
+        <img
+            src="https://i0.wp.com/www.escuelaayurveda.com/wp-content/uploads/2023/02/salud-en-invierno.jpg?w=1174&ssl=1">
+        <div class="contenedor" > Invierno </div>
+    </div>
+</div>
+
+<div class="estaciones" (click)="irDestinos('O')">
+    <div class="polaroid">
+        <img src="https://concepto.de/wp-content/uploads/2022/10/otono-e1665266344782.jpg">
+        <div class="contenedor" > Otoño </div>
+    </div>
+
+    <div class="polaroid" (click)="irDestinos('P')">
+        <img
+            src="https://www.explica.me/__export/1648075844306/sites/debate/img/2022/03/23/disexo_sin_txtulo_-_2022-03-23t164937_796_1.png_554688468.png">
+        <div class="contenedor" > Primavera </div>
+    </div> 
+</div>
+<footer>
+    <p><b>Email: </b> {{emailUsuario}} </p>
+    <p>Derechos de autor &copy; 2023 | <a href="/nextrip">NexTrip</a></p>
+
+</footer>
