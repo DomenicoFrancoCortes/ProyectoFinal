@@ -35,32 +35,40 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserDetails();
-
-    this.ionViewDidLoad();
-
+   // console.log(JSON.stringify(this.destinosService.obtenerDestinos()));
+    // this.ionViewDidLoad();
+    this.destinosService.obtenerDestinos().subscribe(
+      (data) => {
+        console.log(JSON.stringify(data)); // Accede a los datos dentro de la función de callback
+      },
+      (error) => {
+        console.error('Error al obtener destinos: ', error);
+      }
+    );
+    
   }
 
-  ionViewDidLoad() {
-    this.destinosService.obtenerDestinos()
-      .subscribe(
-        (data) => {
-          this.data = data;
-          this.destinosService.lugaresInvierno = this.data.invierno;
-          this.destinosService.lugaresOtono = this.data.otono;
-          this.destinosService.lugaresVerano = this.data.verano;
-          this.destinosService.lugaresPrimavera = this.data.primavera;
-          console.log(this.destinosService.lugaresInvierno);
-          this.cargarVerano();
-        },
-        (error) => { console.log(error); }
-      );
-  }
+  // ionViewDidLoad() {
+  //   this.destinosService.obtenerDestinos()
+  //     .subscribe(
+  //       (data) => {
+  //         this.data = data;
+  //         this.destinosService.lugaresInvierno = this.data.invierno;
+  //         this.destinosService.lugaresOtono = this.data.otono;
+  //         this.destinosService.lugaresVerano = this.data.verano;
+  //         this.destinosService.lugaresPrimavera = this.data.primavera;
+  //         console.log(this.destinosService.lugaresInvierno);
+  //         this.cargarVerano();
+  //       },
+  //       (error) => { console.log(error); }
+  //     );
+  // }
 
-  cargarVerano(){
+  cargarVerano() {
     this.favoritosService.listaActividades = this.destinosService.lugaresVerano[0].actividades;
-    console.log(this.destinosService.lugaresInvierno);
-    console.log(this.favoritosService.listaActividades.length);
-    console.log("carga actividades: " + JSON.stringify(this.favoritosService.listaActividades));
+    // console.log(this.destinosService.lugaresInvierno);
+    // console.log(this.favoritosService.listaActividades.length);
+    // console.log("carga actividades: " + JSON.stringify(this.favoritosService.listaActividades));
   }
 
   private getUserDetails() {

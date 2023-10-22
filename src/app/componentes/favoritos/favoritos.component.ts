@@ -70,7 +70,7 @@ export class FavoritosComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.ionViewDidLoad();
+    //this.ionViewDidLoad();
     //this.cargarActividades();
     //this.cargarFavoritos();    
   }
@@ -98,23 +98,23 @@ export class FavoritosComponent implements OnInit {
   }
   */
   
-  ionViewDidLoad() {
-    this.destinosService.obtenerDestinos()
-      .subscribe(
-        (data) => {
-          this.data = data;
-          this.lugaresInvierno = this.data.invierno;
-          this.lugaresOtono = this.data.otono;
-          this.lugaresVerano = this.data.verano;
-          this.lugaresPrimavera = this.data.primavera;
-          console.log(this.lugaresInvierno);
-          this.cargarActividades();
-          this.cargarEventos();
-          this.cargarFavoritos();
-        },
-        (error) => { console.log(error); }
-      );
-  }  
+  // ionViewDidLoad() {
+  //   this.destinosService.obtenerDestinos()
+  //     .subscribe(
+  //       (data) => {
+  //         this.data = data;
+  //         this.lugaresInvierno = this.data.invierno;
+  //         this.lugaresOtono = this.data.otono;
+  //         this.lugaresVerano = this.data.verano;
+  //         this.lugaresPrimavera = this.data.primavera;
+  //         console.log(this.lugaresInvierno);
+  //         this.cargarActividades();
+  //         this.cargarEventos();
+  //         this.cargarFavoritos();
+  //       },
+  //       (error) => { console.log(error); }
+  //     );
+  // }  
   
   cargarActividades(){
     for (let i = 0; i < this.lugaresVerano.length; i++) {
