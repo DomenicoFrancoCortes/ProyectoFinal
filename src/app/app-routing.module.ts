@@ -10,6 +10,7 @@ import { ActividadComponent } from './componentes/actividad/actividad.component'
 import { EventoComponent } from './componentes/evento/evento.component';
 import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
 import { NextripComponent } from './componentes/nextrip/nextrip.component';
+import { AgregarDestinoComponent } from './componentes/agregar-destino/agregar-destino.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path:'evento', component:EventoComponent},
   {path:'favoritos', component:FavoritosComponent},
   {path:'nextrip', component:NextripComponent},
+  {path:'agregarDestino', component:AgregarDestinoComponent},
   {path:'**', component:DestinoComponent}
 ];
 

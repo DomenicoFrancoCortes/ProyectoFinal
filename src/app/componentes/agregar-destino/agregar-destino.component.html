@@ -1,0 +1,42 @@
+<div class="container">
+    <h1>Agregue un nuevo destino o modifique uno existente</h1>
+    <!-- <form [formGroup]="destinoForm" (ngSubmit)='agregarDestino()'> -->
+        <form [formGroup]="destinoForm">
+            <div class="form-group">
+                <label class="col-form-label mt-4" for="inputDefault">Ingrese código de la estación</label>
+                <input
+                  formControlName="tempo_id"
+                  type="number" 
+                  class="form-control" 
+                  placeholder="1=Verano --- 2=Otoño --- 3=Invierno --- 4=Primavera" 
+                  id="inputDefault">
+              </div>
+      <div class="form-group">
+        <label class="col-form-label mt-4" for="inputDefault">Ingrese el nombre del destino</label>
+        <input
+          formControlName="nombre"
+          type="text" 
+          class="form-control" 
+          placeholder="Nombre" 
+          id="inputDefault">
+      </div>
+
+      <div class="form-group">
+        <label class="col-form-label mt-4" for="inputDefault">Ingrese la descripcion del destino</label>
+        <input
+          formControlName="desc"
+          type="text" 
+          class="form-control" 
+          placeholder="Descripcion" 
+          id="inputDefault">
+      </div>
+
+    
+
+      <div style="margin-top: 10px;">
+        <button (click)="agregarDestino()" type="submit" class="btn btn-primary"style="background-color:#9abdeb">Aceptar</button>
+        <button style="margin-left: 5px;" routerLink="/destinos" type="button" class="btn btn-secondary">Volver</button>
+      </div>
+
+  </form>
+  </div>

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Destino } from '../models/destino'
+import { Destino, DestinoNuevo } from '../models/destino'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DestinosService {
 
+  url = 'https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino';
   public destinoVerano: boolean = false;
   public destinoPrimavera: boolean = false;
   public destinoOtono: boolean = false;
@@ -75,4 +77,13 @@ export class DestinosService {
     return this.http.get('https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino');
   }
   
+  postDestino(prod: DestinoNuevo): Observable<any> {
+    console.log('Haciendo post a API destinos');
+    console.log(prod);
+    return this.http.post('https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino', prod);
+  }
+  putDestinoSeleccionado(id: string, dest: DestinoNuevo): Observable<any> {
+    return this.http.put('https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino' + id, dest);
+  }
 }
+
