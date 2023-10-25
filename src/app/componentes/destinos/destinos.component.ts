@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+//import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DestinosService } from '../../services/destinos.service';
 import { Destino, DestinoJson } from '../../models/destino'
 import { map } from 'rxjs/operators';
@@ -56,20 +57,42 @@ export class DestinosComponent implements OnInit {
     nombre: '',
     desc: ''
   }];
-  */  
+  */
   lugares: DestinoJ[] = [];
   estacionActual: number = 0;
 
   constructor(
     public destinosService: DestinosService,
-    private router: Router
+    private router2: Router,
+    private router: ActivatedRoute
   ) {
+    this.router.queryParams.subscribe(params => {
+      const temporada = params['temporada'];
+      console.log(temporada);
+      switch (temporada) {
+        case 'V':
+          this.estacionActual = 1;
+          break;
+        case 'I':
+          this.estacionActual = 3;
+          break;
+        case 'P':
+          this.estacionActual = 4;
+          break;
+        case 'O':
+          this.estacionActual = 2;
+          break;
+        default:
+          this.estacionActual = 0;
+          break;
+      }
+    });
   }
 
   ngOnInit(): void {
     //this.lugares = this.destinosService.lugares; 
 
-    this.destinosService.obtenerDestinoTempo(this.destinosService.estacionActual)
+    this.destinosService.obtenerDestinoTempo(this.estacionActual)
       .subscribe(
         (data) => {
           this.data = data;
@@ -85,7 +108,7 @@ export class DestinosComponent implements OnInit {
   irDestino(destinoId: number) {
     console.log("Destino elegido: " + destinoId);
     this.destinosService.lugarElegido = destinoId;
-    this.router.navigate(['/destino']);
+    this.router2.navigate(['/destino']);
   }
 
 

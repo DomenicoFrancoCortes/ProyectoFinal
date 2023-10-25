@@ -119,6 +119,7 @@ export class HomeComponent implements OnInit {
         //this.destinosService.lugares = this.destinosService.lugaresOtono;
         break;
     }
-    this.router.navigate(['/destinos']);
+    //this.router.navigate(['/destinos']);
+    this.router.navigate(['/destinos'], { queryParams: { temporada: estacion } });
   }
 }
