@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Destino, DestinoNuevo } from '../models/destino'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Destino, DestinoNuevo, Temporada_Id } from '../models/destino'
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DestinosService {
 
-  url = 'https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino';
+  urlDestino = 'https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino';
   public destinoVerano: boolean = false;
   public destinoPrimavera: boolean = false;
   public destinoOtono: boolean = false;
@@ -66,6 +66,7 @@ export class DestinosService {
   public lugarElegido: number = 0;
   public actividadElegida: number = 0;
   public eventoElegido: number = 0;
+  public estacionActual: number = 0;
 
   constructor(
     public http: HttpClient
@@ -76,7 +77,12 @@ export class DestinosService {
     console.log('haciendo GET a API destinos');
     return this.http.get('https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino');
   }
-  
+
+  obtenerDestinoTempo(id_tempo: number) {
+    console.log(`GET a API destino TEMPORADA_ID: ${id_tempo}`);
+    return this.http.get(this.urlDestino + '?temporada_id=' + id_tempo);
+  }
+
   postDestino(prod: DestinoNuevo): Observable<any> {
     console.log('Haciendo post a API destinos');
     console.log(prod);

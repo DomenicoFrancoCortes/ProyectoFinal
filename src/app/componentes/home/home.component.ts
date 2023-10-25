@@ -37,6 +37,8 @@ export class HomeComponent implements OnInit {
     this.getUserDetails();
    // console.log(JSON.stringify(this.destinosService.obtenerDestinos()));
     // this.ionViewDidLoad();
+
+    /*
     this.destinosService.obtenerDestinos().subscribe(
       (data) => {
         console.log(JSON.stringify(data)); // Accede a los datos dentro de la función de callback
@@ -45,6 +47,7 @@ export class HomeComponent implements OnInit {
         console.error('Error al obtener destinos: ', error);
       }
     );
+    */
     
   }
 
@@ -97,19 +100,23 @@ export class HomeComponent implements OnInit {
     switch (estacion) {
       case 'V':
         this.destinosService.destinoVerano = true;
-        this.destinosService.lugares = this.destinosService.lugaresVerano;
+        this.destinosService.estacionActual = 1;
+        //this.destinosService.lugares = this.destinosService.lugaresVerano;
         break;
       case 'I':
         this.destinosService.destinoInvierno = true;
-        this.destinosService.lugares = this.destinosService.lugaresInvierno;
+        this.destinosService.estacionActual = 3;
+        //this.destinosService.lugares = this.destinosService.lugaresInvierno;
         break;
       case 'P':
         this.destinosService.destinoPrimavera = true;
-        this.destinosService.lugares = this.destinosService.lugaresPrimavera;
+        this.destinosService.estacionActual = 4;
+        //this.destinosService.lugares = this.destinosService.lugaresPrimavera;
         break;
       case 'O':
         this.destinosService.destinoOtono = true;
-        this.destinosService.lugares = this.destinosService.lugaresOtono;
+        this.destinosService.estacionActual = 2;
+        //this.destinosService.lugares = this.destinosService.lugaresOtono;
         break;
     }
     this.router.navigate(['/destinos']);

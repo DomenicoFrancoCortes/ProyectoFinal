@@ -1,14 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DestinosService } from '../../services/destinos.service';
-import { Destino } from '../../models/destino'
+import { Destino, DestinoJson } from '../../models/destino'
+import { map } from 'rxjs/operators';
 
 //Ini - Interface de listado de destinos
-interface Idata {
-  verano: Destino[];
+interface DestinoJ {
+  /* verano: Destino[];
   otono: Destino[];
   invierno: Destino[];
-  primavera: Destino[];
+  primavera: Destino[]; */
+  ID_TEMPO: number;
+  ESTACION: string;
+  ID_DEST: number;
+  NOMBRE: string;
+  DESC: string;
+}
+
+
+interface Idata {
+  /* verano: Destino[];
+  otono: Destino[];
+  invierno: Destino[];
+  primavera: Destino[]; */
+  ID_TEMPO: number;
+  ESTACION: string;
+  ID_DEST: number;
+  NOMBRE: string;
+  DESC: string;
 }
 //Fin - Interface de listado de destinos
 
@@ -20,6 +39,7 @@ interface Idata {
 export class DestinosComponent implements OnInit {
 
   data: any;
+  /*
   lugares: Destino[] = [{
     id: 0,
     nombre: '',
@@ -29,6 +49,17 @@ export class DestinosComponent implements OnInit {
     eventos: []
   }];
 
+  lugares: DestinoJson[] = [{
+    id_tempo: 0,
+    estacion: '',
+    id_dest: 0,
+    nombre: '',
+    desc: ''
+  }];
+  */  
+  lugares: DestinoJ[] = [];
+  estacionActual: number = 0;
+
   constructor(
     public destinosService: DestinosService,
     private router: Router
@@ -36,7 +67,19 @@ export class DestinosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.lugares = this.destinosService.lugares;   
+    //this.lugares = this.destinosService.lugares; 
+
+    this.destinosService.obtenerDestinoTempo(this.destinosService.estacionActual)
+      .subscribe(
+        (data) => {
+          this.data = data;
+          this.lugares = this.data;
+          console.log(this.lugares)
+        },
+        (error) => {
+          console.error('Error al obtener destinos: ', error);
+        }
+      );
   }
 
   irDestino(destinoId: number) {
@@ -44,8 +87,8 @@ export class DestinosComponent implements OnInit {
     this.destinosService.lugarElegido = destinoId;
     this.router.navigate(['/destino']);
   }
-  
- 
+
+
 }
 
 
