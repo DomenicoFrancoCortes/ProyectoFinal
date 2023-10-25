@@ -1,9 +1,36 @@
 <div class="contenedor">
-    <div class="block">
+    <!-- <div class="block">
         
         <ul class="list">
             <li *ngFor="let lugar of lugares" (click)="irDestino(lugar.ID_DEST)">{{ lugar.NOMBRE }}</li>
         </ul>
         <img src="../../../assets/img/Post.jpg" alt="">
+    </div> -->
+    <!-- <div>
+    <div *ngFor="let lugar of lugares" (click)="irDestino(lugar.ID_DEST)" class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ lugar.NOMBRE }}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div> -->
+    <h1>Destinos</h1>
+    <div class="contenedor_card">
+    <div *ngFor="let lugar of lugares" (click)="irDestino(lugar.ID_DEST)"  class="card" style="width: 18rem; margin: 20px; text-align: center;">
+        <img src="../../../assets/img/1.png" class="card-img-top" alt="...">
+        <div class="card-body" >
+          <h5 class="card-title">{{ lugar.NOMBRE }}</h5>
+        </div>
+       
+        <div class="card-body" style="text-align: center;">
+          <img style="width: 50px;" src="../../../assets/img/basura.png" alt="Eliminar">
+            <a href="#" class="card-link">Eliminar Destino</a>
+          
+        </div>
+      </div>
     </div>
+    <button routerLink="/agregarDestino" type="button" class="btn btn-secondary" style="background-color: #9abdeb;">Agregar Destino</button>
 </div> 
