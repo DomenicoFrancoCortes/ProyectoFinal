@@ -19,15 +19,16 @@
     </div> -->
     <h1>Destinos</h1>
     <div class="contenedor_card">
-    <div *ngFor="let lugar of lugares" (click)="irDestino(lugar.ID_DEST)"  class="card" style="width: 18rem; margin: 20px; text-align: center;">
-        <img src="../../../assets/img/1.png" class="card-img-top" alt="...">
+    <div *ngFor="let lugar of lugares"  class="card" style="width: 18rem; margin: 20px; text-align: center;">
+        <img  (click)="irDestino(lugar.ID_DEST)" src="../../../assets/img/1.png" class="card-img-top" alt="...">
         <div class="card-body" >
           <h5 class="card-title">{{ lugar.NOMBRE }}</h5>
+          
         </div>
        
-        <div class="card-body" style="text-align: center;">
-          <img style="width: 50px;" src="../../../assets/img/basura.png" alt="Eliminar">
-            <a href="#" class="card-link">Eliminar Destino</a>
+        <div  class="card-body" style="text-align: center;">
+          <img class="card-link"(click)="eliminarDestino(lugar.ID_DEST)" id="delete" style="width: 50px;" src="../../../assets/img/basura.png" alt="Eliminar">
+            <a href="#" >Eliminar Destino</a>
           
         </div>
       </div>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DestinosService } from '../../services/destinos.service';
 import { Actividad } from '../../models/actividad'
 import { FavoritosService } from 'src/app/services/favoritos.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 interface ActividadJ {
   ID_ACT: number;
@@ -36,6 +36,7 @@ export class ActividadComponent implements OnInit {
     public destinosService: DestinosService,
     public favoritosService: FavoritosService,
     private router: ActivatedRoute,
+    private router2: Router,
   ) { 
     this.router.queryParams.subscribe(params => {
       this.actividad_id = params['act_id'];
@@ -58,62 +59,15 @@ export class ActividadComponent implements OnInit {
         }
       );    
   }
-
-  /*
-  guardarFavorito(id: number) {
-    console.log("Favoritos antes: " + this.favoritosService.userFavorito.favoritos);
-
-    //this.favoritosService.userFavorito.email = this.emailUsuario;
-    this.favoritosService.userFavorito.favoritos.push(id);
-
-    //Saca repetidos
-    let sinRepetidos = this.favoritosService.userFavorito.favoritos.filter((item, index) => {
-      return this.favoritosService.userFavorito.favoritos.indexOf(item) === index;
+  eliminarActividad(id_act: number) {
+    console.log(id_act);
+    this.destinosService.eliminarActividad(id_act).subscribe({
+    next: data => {
+      console.log("se elimina actividad");
+      this.router2.navigate(['/destino'], { queryParams: { id_dest: this.actividad[0].DEST_ID } });
+      }, error: err => {
+        console.log(err);
+      }
     })
-    console.log("Sin repetidos: " + sinRepetidos); 
-    
-    //let favoritosUser = this.favoritosService.userFavorito.favoritos;
-    let favoritosUser = sinRepetidos;
-    
-    console.log("Favoritos desp: " + favoritosUser);
-    
-    this.favoritosService.crearLista(this.favoritosService.userFavorito.email, favoritosUser);
-   
-    this.favoritosService.guardarFavoritos('https://9kqrh01hc4.execute-api.us-east-1.amazonaws.com/default/obtenerDato',
-      `{"email": "${this.favoritosService.userFavorito.email}", "favoritos": [${this.favoritosService.userFavorito.favoritos}]}`).subscribe(respuesta => {
-        console.log('comentario enviado');
-      })
   }
-
-  cargarImagenes() {
-    switch (true) {
-      case this.actividad[0].id >= 100 && this.actividad[0].id < 200:
-        for (let i = 1; i < 4; i++) {
-          this.imagenes[i - 1] = "https://nextripjson.s3.amazonaws.com/img/verano/" + this.actividad[0].id + "_0" + i + ".jpg";
-          console.log(this.imagenes[i]);
-        }
-        break;
-      case this.actividad[0].id >= 200 && this.actividad[0].id < 300:
-        for (let i = 1; i < 4; i++) {
-          this.imagenes[i - 1] = "https://nextripjson.s3.amazonaws.com/img/otonio/" + this.actividad[0].id + "_0" + i + ".jpg";
-          console.log(this.imagenes[i]);
-        }
-        break;
-      case this.actividad[0].id >= 300 && this.actividad[0].id < 400:
-        for (let i = 1; i < 4; i++) {
-          this.imagenes[i - 1] = "https://nextripjson.s3.amazonaws.com/img/invierno/" + this.actividad[0].id + "_" + i + ".jpg";
-          console.log(this.imagenes[i]);
-        }
-        break;
-      case this.actividad[0].id >= 400 && this.actividad[0].id < 500:
-        for (let i = 1; i < 4; i++) {
-          this.imagenes[i - 1] = "https://nextripjson.s3.amazonaws.com/img/primavera/" + this.actividad[0].id + "_0" + i + ".jpg";
-          console.log(this.imagenes[i]);
-        }
-        break;
-      default:
-        break;
-    }
-  }
-  */  
 }

@@ -78,6 +78,28 @@ export class DestinosComponent implements OnInit {
     this.destinosService.lugarElegido = destinoId;
     this.router2.navigate(['/destino'], { queryParams: { id_dest: destinoId } });
   }
+   eliminarDestino(id_dest: number) {
+     console.log(id_dest);
+     this.destinosService.deleteDestino(id_dest).subscribe({
+     next: data => {
+         this.destinosService.obtenerDestinoTempo(this.estacionActual)
+         .subscribe(
+          (data) => {
+        
+            console.log(data);
+          },
+          (error) => {
+            console.error('Error al obtener destinos: ', error);
+          }
+        );
+         console.log("Se elimino destino");
+        
+       }, error: err => {
+         console.log(err);
+       }
+     })
+   }
+
 }
 
 

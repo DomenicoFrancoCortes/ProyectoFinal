@@ -11,7 +11,7 @@ export interface Destino {
 }
 
 export class DestinoNuevo {
-  _ID?: number;
+  id_dest?: number;
   tempo_id: number;
   nombre: string;
   desc: string;

@@ -89,17 +89,17 @@ export class DestinosService {
   obtenerDatosDest(id_dest: number) {
     console.log(`GET a API destino ID_DEST: ${id_dest}`);
     return this.http.get(this.urlDatoDest + id_dest);
-  }  
+  }
 
   obtenerActividad(id_act: number) {
     console.log(`GET a API actividad ID_ACT: ${id_act}`);
     return this.http.get(this.urlActividad + id_act);
-  }   
+  }
 
   obtenerEvento(id_eve: number) {
     console.log(`GET a API evento ID_EVE: ${id_eve}`);
     return this.http.get(this.urlEvento + id_eve);
-  }    
+  }
 
   postDestino(prod: DestinoNuevo): Observable<any> {
     console.log('Haciendo post a API destinos');
@@ -109,5 +109,15 @@ export class DestinosService {
   putDestinoSeleccionado(id: string, dest: DestinoNuevo): Observable<any> {
     return this.http.put('https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino' + id, dest);
   }
-}
 
+  deleteDestino(id_dest: number): Observable<any> {
+    return this.http.delete('https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino?id_dest=' + id_dest);
+  }
+  eliminarActividad(id_act: number) {
+    
+    return this.http.delete(this.urlActividad + id_act);
+  }
+  eliminarEvento(id_eve: number){
+    return this.http.delete(this.urlEvento + id_eve);
+  }
+}

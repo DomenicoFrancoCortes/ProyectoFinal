@@ -102,6 +102,7 @@ export class DestinoComponent implements OnInit {
     this.destinosService.eventoElegido = eventoId;
     this.router.navigate(['/evento'], { queryParams: { eve_id: eventoId } });
   }
+  
 
   /*
   cargarImagenes() {
