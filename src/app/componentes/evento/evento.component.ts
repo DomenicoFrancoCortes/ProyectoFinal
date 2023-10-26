@@ -2,6 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { DestinosService } from '../../services/destinos.service';
 import { Evento } from '../../models/evento'
 import { FavoritosService } from 'src/app/services/favoritos.service';
+import { ActivatedRoute } from '@angular/router';
+
+interface EventoJ {
+  ID_EVENTO: number;
+  NOMBRE: string;
+  DESCRIPCION: string;
+  MES: string;
+  DEST_ID: number;
+}
+
+interface Idata {
+  ID_EVENTO: number;
+  NOMBRE: string;
+  DESCRIPCION: string;
+  MES: string;
+  DEST_ID: number;
+}
 
 @Component({
   selector: 'app-evento',
@@ -10,27 +27,39 @@ import { FavoritosService } from 'src/app/services/favoritos.service';
 })
 export class EventoComponent implements OnInit {
 
-  evento: Evento[];
+  data: any;
+  evento: EventoJ[] = [];
   imagenes: string[] = [];
+  evento_id: number = 0;
 
   constructor(
     public destinosService: DestinosService,
-    public favoritosService: FavoritosService
-  ) { 
-    this.evento =[{
-      id: 0,
-      nombre: '',
-      descripcion: '',
-      imagen: '',
-      fecha: ''
-    }];    
+    public favoritosService: FavoritosService,
+    private router: ActivatedRoute,
+  ) {   
+    this.router.queryParams.subscribe(params => {
+      this.evento_id = params['eve_id'];
+      console.log(this.evento_id);
+    });      
   }
 
   ngOnInit(): void {
-    this.evento = this.destinosService.lugar.eventos.filter((eve) => eve.id === this.destinosService.eventoElegido);
-    this.cargarImagenes();
+    //this.cargarImagenes();
+
+    this.destinosService.obtenerEvento(this.evento_id)
+      .subscribe(
+        (data) => {
+          this.data = data;
+          this.evento = this.data;
+          console.log(this.evento)
+        },
+        (error) => {
+          console.error('Error al obtener datos evento: ', error);
+        }
+      );     
   }
 
+  /*
   guardarFavorito(id: number) {
     console.log("Favoritos antes: " + this.favoritosService.userFavorito.favoritos);
 
@@ -85,5 +114,6 @@ export class EventoComponent implements OnInit {
       default:
         break;
     }
-  }    
+  }
+  */    
 }

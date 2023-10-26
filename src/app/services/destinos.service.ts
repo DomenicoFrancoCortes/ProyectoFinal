@@ -11,6 +11,7 @@ export class DestinosService {
   urlDestino = 'https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino';
   urlDatoDest = 'https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino/dest?id_dest=';
   urlActividad = 'https://c17gklu2a3.execute-api.us-east-1.amazonaws.com/actividad?act_id=';
+  urlEvento = 'https://axush4jbmd.execute-api.us-east-1.amazonaws.com/evento?eve_id=';
   public destinoVerano: boolean = false;
   public destinoPrimavera: boolean = false;
   public destinoOtono: boolean = false;
@@ -94,6 +95,11 @@ export class DestinosService {
     console.log(`GET a API actividad ID_ACT: ${id_act}`);
     return this.http.get(this.urlActividad + id_act);
   }   
+
+  obtenerEvento(id_eve: number) {
+    console.log(`GET a API evento ID_EVE: ${id_eve}`);
+    return this.http.get(this.urlEvento + id_eve);
+  }    
 
   postDestino(prod: DestinoNuevo): Observable<any> {
     console.log('Haciendo post a API destinos');
