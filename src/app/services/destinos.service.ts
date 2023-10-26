@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class DestinosService {
 
   urlDestino = 'https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino';
-  urlDatoDest = 'https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino/dest?id_dest='
+  urlDatoDest = 'https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino/dest?id_dest=';
+  urlActividad = 'https://c17gklu2a3.execute-api.us-east-1.amazonaws.com/actividad?act_id=';
   public destinoVerano: boolean = false;
   public destinoPrimavera: boolean = false;
   public destinoOtono: boolean = false;
@@ -88,6 +89,11 @@ export class DestinosService {
     console.log(`GET a API destino ID_DEST: ${id_dest}`);
     return this.http.get(this.urlDatoDest + id_dest);
   }  
+
+  obtenerActividad(id_act: number) {
+    console.log(`GET a API actividad ID_ACT: ${id_act}`);
+    return this.http.get(this.urlActividad + id_act);
+  }   
 
   postDestino(prod: DestinoNuevo): Observable<any> {
     console.log('Haciendo post a API destinos');

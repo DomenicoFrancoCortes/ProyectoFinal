@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DestinosService } from '../../services/destinos.service';
 import { Destino, DestinoJson } from '../../models/destino'
-import { map } from 'rxjs/operators';
 
 interface DestinoJ {
   ID_TEMPO: number;
@@ -39,6 +38,7 @@ export class DestinosComponent implements OnInit {
     this.router.queryParams.subscribe(params => {
       const temporada = params['temporada'];
       console.log(temporada);
+      
       switch (temporada) {
         case 'V':
           this.estacionActual = 1;
@@ -60,8 +60,6 @@ export class DestinosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.lugares = this.destinosService.lugares; 
-
     this.destinosService.obtenerDestinoTempo(this.estacionActual)
       .subscribe(
         (data) => {
@@ -78,7 +76,6 @@ export class DestinosComponent implements OnInit {
   irDestino(destinoId: number) {
     console.log("Destino elegido: " + destinoId);
     this.destinosService.lugarElegido = destinoId;
-    //this.router2.navigate(['/destino']);
     this.router2.navigate(['/destino'], { queryParams: { id_dest: destinoId } });
   }
 }

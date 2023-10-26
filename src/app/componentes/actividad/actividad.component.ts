@@ -2,6 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { DestinosService } from '../../services/destinos.service';
 import { Actividad } from '../../models/actividad'
 import { FavoritosService } from 'src/app/services/favoritos.service';
+import { ActivatedRoute } from '@angular/router';
+
+interface ActividadJ {
+  ID_ACT: number;
+  NOMBRE: string;
+  DESCRIPCION: string;
+  CATEGORIA: string;
+  DEST_ID: number;
+}
+
+interface Idata {
+  ID_ACT: number;
+  NOMBRE: string;
+  DESCRIPCION: string;
+  CATEGORIA: string;
+  DEST_ID: number;
+}
 
 @Component({
   selector: 'app-actividad',
@@ -10,27 +27,39 @@ import { FavoritosService } from 'src/app/services/favoritos.service';
 })
 export class ActividadComponent implements OnInit {
 
-  actividad: Actividad[];
+  data: any;
+  actividad: ActividadJ[] = [];
   imagenes: string[] = [];
+  actividad_id: number = 0;
 
   constructor(
     public destinosService: DestinosService,
-    public favoritosService: FavoritosService
+    public favoritosService: FavoritosService,
+    private router: ActivatedRoute,
   ) { 
-    this.actividad =[{
-      id: 0,
-      nombre: '',
-      descripcion: '',
-      imagen: '',
-      categoria: ''
-    }];
+    this.router.queryParams.subscribe(params => {
+      this.actividad_id = params['act_id'];
+      console.log(this.actividad_id);
+    });    
   }
 
   ngOnInit(): void {
-    this.actividad = this.destinosService.lugar.actividades.filter((act) => act.id === this.destinosService.actividadElegida);
-    this.cargarImagenes();
+    //this.cargarImagenes();
+
+    this.destinosService.obtenerActividad(this.actividad_id)
+      .subscribe(
+        (data) => {
+          this.data = data;
+          this.actividad = this.data;
+          console.log(this.actividad)
+        },
+        (error) => {
+          console.error('Error al obtener datos actividad: ', error);
+        }
+      );    
   }
 
+  /*
   guardarFavorito(id: number) {
     console.log("Favoritos antes: " + this.favoritosService.userFavorito.favoritos);
 
@@ -85,5 +114,6 @@ export class ActividadComponent implements OnInit {
       default:
         break;
     }
-  }  
+  }
+  */  
 }

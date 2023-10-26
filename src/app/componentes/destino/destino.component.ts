@@ -78,6 +78,7 @@ export class DestinoComponent implements OnInit {
         }
       );
   }
+  
   private getUserDetails() {
     this.cognitoService.getUser().then((user: any) => {
       this.user = user;
@@ -89,16 +90,17 @@ export class DestinoComponent implements OnInit {
       }
     })
   }
+
   irActividad(actividadId: number) {
     console.log("Actividad Id: " + actividadId);
     this.destinosService.actividadElegida = actividadId;
-    this.router.navigate(['/actividad']);
+    this.router.navigate(['/actividad'], { queryParams: { act_id: actividadId } });
   }
 
   irEvento(eventoId: number) {
     console.log("Evento Id: " + eventoId);
     this.destinosService.eventoElegido = eventoId;
-    this.router.navigate(['/evento']);
+    this.router.navigate(['/evento'], { queryParams: { eve_id: eventoId } });
   }
 
   /*
