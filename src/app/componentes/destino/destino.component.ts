@@ -1,9 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { DestinosService } from '../../services/destinos.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Destino } from '../../models/destino'
 import { CognitoService } from 'src/app/services/cognito.service';
 import { User } from 'src/app/models/user';
+
+interface DatosDestJ {
+  ID_DEST: number;
+  TEMPORADA_ID: number;
+  DEST_NOMBRE: string;
+  DEST_DESC: string;
+  TIPO: string;
+  ID: number;
+  NOMBRE: string;
+}
+
+interface Idata {
+  ID_DEST: number;
+  TEMPORADA_ID: number;
+  DEST_NOMBRE: string;
+  DEST_DESC: string;
+  TIPO: string;
+  ID: number;
+  NOMBRE: string;
+}
 
 @Component({
   selector: 'app-destino',
@@ -12,7 +32,10 @@ import { User } from 'src/app/models/user';
 })
 export class DestinoComponent implements OnInit {
 
-  destino: Destino[];
+  data: any;
+  datos_dest: DatosDestJ[] = [];
+  actividades: DatosDestJ[] = [];
+  eventos: DatosDestJ[] = [];
   imagenes: string[] = [];
   user: User = {
     email: '',
@@ -23,35 +46,43 @@ export class DestinoComponent implements OnInit {
     showPassword: false
   };
   emailUsuario: string = '';
+  destino_id: number = 0;
 
   constructor(
     public destinosService: DestinosService,
     private router: Router,
+    private router2: ActivatedRoute,
     private cognitoService: CognitoService,
   ) {
-    this.destino = [{
-      id: 0,
-      nombre: '',
-      descripcion: '',
-      imagen: '',
-      actividades: [],
-      eventos: []
-    }]
+    this.router2.queryParams.subscribe(params => {
+      this.destino_id = params['id_dest'];
+      console.log(this.destino_id);
+    });
   }
 
   ngOnInit(): void {
     this.getUserDetails();
-    this.destino = this.destinosService.lugares.filter((lugar) => lugar.id === this.destinosService.lugarElegido);
-    this.destinosService.lugar = this.destino[0];
-    console.log("Destino :" + this.destino.toString);
-    this.cargarImagenes();
+    //this.cargarImagenes();
+
+    this.destinosService.obtenerDatosDest(this.destino_id)
+      .subscribe(
+        (data) => {
+          this.data = data;
+          this.datos_dest = this.data;
+          this.actividades = this.datos_dest.filter((lugar) => lugar.TIPO === 'A');
+          this.eventos = this.datos_dest.filter((lugar) => lugar.TIPO === 'E');
+          console.log(this.datos_dest)
+        },
+        (error) => {
+          console.error('Error al obtener datos destino: ', error);
+        }
+      );
   }
   private getUserDetails() {
     this.cognitoService.getUser().then((user: any) => {
       this.user = user;
       if (user) {
         this.emailUsuario = user.attributes.given_name;
-        
         console.log(this.emailUsuario);
       } else {
         this.router.navigate(['/iniciar-sesion']);
@@ -70,6 +101,7 @@ export class DestinoComponent implements OnInit {
     this.router.navigate(['/evento']);
   }
 
+  /*
   cargarImagenes() {
     switch (true) {
       case this.destino[0].id >= 100 && this.destino[0].id < 200:
@@ -100,4 +132,5 @@ export class DestinoComponent implements OnInit {
         break;
     }
   }
+  */
 }
