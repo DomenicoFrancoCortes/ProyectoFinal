@@ -15,7 +15,10 @@ export class AgregarDestinoComponent implements OnInit {
   id: string | null;
 
 
-  constructor(private fb: FormBuilder, private actRouter: ActivatedRoute, private destinoService: DestinosService) {
+  constructor(
+    private fb: FormBuilder
+    , private actRouter: ActivatedRoute
+    , private destinoService: DestinosService) {
     this.destinoForm = this.fb.group({
       tempo_id: ['', Validators.required],
       nombre: ['', Validators.required],
@@ -27,6 +30,7 @@ export class AgregarDestinoComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   agregarDestino() {
     if (this.id !== null) {
 
@@ -53,7 +57,7 @@ export class AgregarDestinoComponent implements OnInit {
         tempo_id: this.destinoForm.value.tempo_id,
         nombre: this.destinoForm.value.nombre,
         desc: this.destinoForm.value.desc,
-        
+
       };
       console.log('ESTE ES EL METODO', DESTINO);
 
