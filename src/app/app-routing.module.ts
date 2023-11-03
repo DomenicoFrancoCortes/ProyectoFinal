@@ -11,6 +11,8 @@ import { EventoComponent } from './componentes/evento/evento.component';
 import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
 import { NextripComponent } from './componentes/nextrip/nextrip.component';
 import { AgregarDestinoComponent } from './componentes/agregar-destino/agregar-destino.component';
+import { AgregarActividadComponent } from './componentes/agregar-actividad/agregar-actividad.component';
+import { AgregarEventoComponent } from './componentes/agregar-evento/agregar-evento.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path:'favoritos', component:FavoritosComponent},
   {path:'nextrip', component:NextripComponent},
   {path:'agregarDestino', component:AgregarDestinoComponent},
+  {path:'agregarActividad', component:AgregarActividadComponent},
+  {path:'agregarEvento', component:AgregarEventoComponent},
   {path:'**', component:DestinoComponent}
 ];
 

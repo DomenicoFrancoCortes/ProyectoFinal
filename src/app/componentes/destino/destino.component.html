@@ -1,4 +1,4 @@
-<div class="contenedor">
+<div class="contenedor" >
     <h1>{{datos_dest[0].DEST_NOMBRE}}</h1>
 
     <p><b>Descripcion: </b> {{datos_dest[0].DEST_DESC}}</p>
@@ -11,6 +11,7 @@
                 {{ act.NOMBRE }}
             </li>
         </ul>
+        <button (click)="agregarActividad(datos_dest[0].ID_DEST)" type="button" class="btn btn-secondary" style="background-color: #9abdeb;">Agregar Actividad</button>
     </div>
 
     <p><b>Eventos: </b></p>
@@ -20,6 +21,7 @@
                 {{ eve.NOMBRE }}
             </li>
         </ul>
+        <button (click)="agregarEvento(datos_dest[0].ID_DEST)" type="button" class="btn btn-secondary" style="background-color: #9abdeb;">Agregar Evento</button>
     </div>
 
     <!-- 
@@ -27,7 +29,7 @@
         <img class="img" *ngFor="let img of imagenes" src={{img}} alt="Destino">
     </div> 
     -->
-
+    
     <footer>
         <p>Derechos de autor &copy; 2023 | <a href="/nextrip">NexTrip</a></p>
     </footer>

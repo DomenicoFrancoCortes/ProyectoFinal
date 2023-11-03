@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Destino, DestinoNuevo, Temporada_Id } from '../models/destino'
 import { Observable } from 'rxjs';
+import { ActividadNueva } from '../models/actividad';
+import { EventoNuevo } from '../models/evento';
 
 @Injectable({
   providedIn: 'root'
@@ -108,6 +110,16 @@ export class DestinosService {
   }
   putDestinoSeleccionado(id: string, dest: DestinoNuevo): Observable<any> {
     return this.http.put('https://ynzgyp33j1.execute-api.us-east-1.amazonaws.com/Destino' + id, dest);
+  }
+  postActividad(prod: ActividadNueva): Observable<any>{
+    console.log(prod);
+    return this.http.post('https://c17gklu2a3.execute-api.us-east-1.amazonaws.com/actividad', prod);
+  }
+  putActividadSeleccionada(id:string,act:ActividadNueva): Observable<any>{
+    return this.http.put('https://c17gklu2a3.execute-api.us-east-1.amazonaws.com/actividad' + id, act);
+  }
+  postEvento(prod: EventoNuevo): Observable<any> {
+    return this.http.post('https://axush4jbmd.execute-api.us-east-1.amazonaws.com/evento', prod);
   }
 
   deleteDestino(id_dest: number): Observable<any> {

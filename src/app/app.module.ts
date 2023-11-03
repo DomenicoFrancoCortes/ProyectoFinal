@@ -16,6 +16,8 @@ import { EventoComponent } from './componentes/evento/evento.component';
 import { FavoritosComponent } from './componentes/favoritos/favoritos.component';
 import { NextripComponent } from './componentes/nextrip/nextrip.component';
 import { AgregarDestinoComponent } from './componentes/agregar-destino/agregar-destino.component';
+import { AgregarActividadComponent } from './componentes/agregar-actividad/agregar-actividad.component';
+import { AgregarEventoComponent } from './componentes/agregar-evento/agregar-evento.component';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -32,6 +34,8 @@ import { AgregarDestinoComponent } from './componentes/agregar-destino/agregar-d
     FavoritosComponent,
     NextripComponent,
     AgregarDestinoComponent,
+    AgregarActividadComponent,
+    AgregarEventoComponent,
     
   ],
   imports: [

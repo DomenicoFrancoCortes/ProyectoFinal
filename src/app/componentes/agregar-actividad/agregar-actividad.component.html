@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Agregue un nueva actividad o modifique uno existente</h1>
+
+    <form [formGroup]="actividadForm">
+                      
+
+        <div class="form-group">
+            <label class="col-form-label mt-4" for="inputDefault">Ingrese el nombre de la actividad</label>
+            <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre" id="inputDefault">
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label mt-4" for="inputDefault">Ingrese la descripcion de la actividad</label>
+            <input formControlName="desc" type="text" class="form-control" placeholder="Descripcion" id="inputDefault">
+        </div>
+        
+        <div class="form-group">
+            <label class="col-form-label mt-4" for="inputDefault">Ingrese la descripcion de la actividad</label>
+            <input formControlName="categoria" type="text" class="form-control" placeholder="Categoria" id="inputDefault">
+        </div>
+
+        <div style="margin-top: 10px;">
+            <button (click)="agregarActividad()" type="submit" class="btn btn-primary"
+                style="background-color:#9abdeb">Aceptar</button>
+            <button style="margin-left: 5px;" (click)="goBack()" type="button"
+                class="btn btn-secondary">Volver</button>
+        </div>
+    </form>
+</div>

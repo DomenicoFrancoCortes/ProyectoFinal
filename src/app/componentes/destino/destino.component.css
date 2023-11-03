@@ -11,6 +11,10 @@ h1 {
 .block {
     text-align: center;
     background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .list {

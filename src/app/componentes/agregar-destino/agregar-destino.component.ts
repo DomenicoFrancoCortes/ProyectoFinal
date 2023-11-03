@@ -26,6 +26,7 @@ export class AgregarDestinoComponent implements OnInit {
 
     });
     this.id = this.actRouter.snapshot.paramMap.get('id');
+    
   }
 
   ngOnInit(): void {

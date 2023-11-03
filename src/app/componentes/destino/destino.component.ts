@@ -56,7 +56,7 @@ export class DestinoComponent implements OnInit {
   ) {
     this.router2.queryParams.subscribe(params => {
       this.destino_id = params['id_dest'];
-      console.log(this.destino_id);
+      console.log('ID destino:' + this.destino_id);
     });
   }
 
@@ -90,7 +90,16 @@ export class DestinoComponent implements OnInit {
       }
     })
   }
-
+  agregarActividad(destinoId: number) {
+    console.log("Destino elegido: " + destinoId);
+    this.destinosService.lugarElegido = destinoId;
+    this.router.navigate(['/agregarActividad'], { queryParams: { id_dest: destinoId } });
+  }
+  agregarEvento(destinoId: number){
+    console.log("Destino elegido: " + destinoId);
+    this.destinosService.lugarElegido = destinoId;
+    this.router.navigate(['/agregarEvento'], { queryParams: { id_dest: destinoId } });
+  }
   irActividad(actividadId: number) {
     console.log("Actividad Id: " + actividadId);
     this.destinosService.actividadElegida = actividadId;
