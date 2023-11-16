@@ -13,6 +13,7 @@ interface DatosDestJ {
   TIPO: string;
   ID: number;
   NOMBRE: string;
+  IMAGENES: [string];
 }
 
 interface Idata {
@@ -23,6 +24,7 @@ interface Idata {
   TIPO: string;
   ID: number;
   NOMBRE: string;
+  IMAGENES: [string];
 }
 
 @Component({
@@ -71,6 +73,7 @@ export class DestinoComponent implements OnInit {
           this.datos_dest = this.data;
           this.actividades = this.datos_dest.filter((lugar) => lugar.TIPO === 'A');
           this.eventos = this.datos_dest.filter((lugar) => lugar.TIPO === 'E');
+          this.imagenes = this.datos_dest[0].IMAGENES;
           console.log(this.datos_dest)
         },
         (error) => {
