@@ -10,6 +10,7 @@ interface ActividadJ {
   DESCRIPCION: string;
   CATEGORIA: string;
   DEST_ID: number;
+  IMAGENES: [string];
 }
 
 interface Idata {
@@ -18,6 +19,7 @@ interface Idata {
   DESCRIPCION: string;
   CATEGORIA: string;
   DEST_ID: number;
+  IMAGENES: [string];
 }
 
 @Component({
@@ -52,6 +54,7 @@ export class ActividadComponent implements OnInit {
         (data) => {
           this.data = data;
           this.actividad = this.data;
+          this.imagenes = this.actividad[0].IMAGENES;
           console.log(this.actividad)
         },
         (error) => {
