@@ -10,6 +10,7 @@ interface EventoJ {
   DESCRIPCION: string;
   MES: string;
   DEST_ID: number;
+  IMAGENES: [string];
 }
 
 interface Idata {
@@ -18,6 +19,7 @@ interface Idata {
   DESCRIPCION: string;
   MES: string;
   DEST_ID: number;
+  IMAGENES: [string];
 }
 
 @Component({
@@ -52,6 +54,7 @@ export class EventoComponent implements OnInit {
         (data) => {
           this.data = data;
           this.evento = this.data;
+          this.imagenes = this.evento[0].IMAGENES;
           console.log(this.evento)
         },
         (error) => {
