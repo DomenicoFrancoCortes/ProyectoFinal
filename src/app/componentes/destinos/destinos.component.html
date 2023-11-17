@@ -20,7 +20,9 @@
     <h1>Destinos</h1>
     <div class="contenedor_card">
     <div *ngFor="let lugar of lugares"  class="card" style="width: 18rem; margin: 20px; text-align: center;">
-        <img  (click)="irDestino(lugar.ID_DEST)" src="../../../assets/img/1.png" class="card-img-top" alt="...">
+        <img  (click)="irDestino(lugar.ID_DEST)" 
+          [src]="lugar.IMAGEN ? lugar.IMAGEN : '../../../assets/img/1.png'" 
+          class="card-img-top" alt="...">
         <div class="card-body" >
           <h5 class="card-title">{{ lugar.NOMBRE }}</h5>
           

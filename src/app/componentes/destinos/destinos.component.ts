@@ -9,6 +9,7 @@ interface DestinoJ {
   ID_DEST: number;
   NOMBRE: string;
   DESC: string;
+  IMAGEN: string;
 }
 
 interface Idata {
@@ -17,6 +18,7 @@ interface Idata {
   ID_DEST: number;
   NOMBRE: string;
   DESC: string;
+  IMAGEN: string;
 }
 
 @Component({
