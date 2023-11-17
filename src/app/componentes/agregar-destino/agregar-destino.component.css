@@ -1,0 +1,9 @@
+.list-Form{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+.list-Form label{
+    display: contents;
+}

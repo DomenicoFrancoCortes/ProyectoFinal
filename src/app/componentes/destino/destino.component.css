@@ -1,5 +1,20 @@
+nav{
+    /* Opacidad del fondo del navbar */
+   padding: 15px;
+   width: 100%;
+   position: fixed;
+   top: 0;
+   z-index: 1000;
+   
+   background-color: rgba(255, 255, 255, 0.8);
+}
+.nav-item a:hover {
+   
+   color: #fff;
+}
 .contenedor {
     width: 90%;
+    
     margin: auto;
 }
 
@@ -31,7 +46,7 @@ h1 {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
 }
 
-img {
+.imagen {
     width: 280px;
     margin-top: 15px;
     margin-right: 10px;

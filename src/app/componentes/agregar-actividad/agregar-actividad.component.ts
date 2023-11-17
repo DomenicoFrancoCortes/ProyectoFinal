@@ -5,6 +5,7 @@ import { ActividadNueva } from 'src/app/models/actividad';
 import { DestinoNuevo } from 'src/app/models/destino';
 import { DestinosService } from 'src/app/services/destinos.service';
 import { Location } from '@angular/common';
+import { CognitoService } from 'src/app/services/cognito.service';
 
 @Component({
   selector: 'app-agregar-actividad',
@@ -21,6 +22,7 @@ export class AgregarActividadComponent implements OnInit {
   constructor(
     private fb: FormBuilder
     , private router:Router,
+    private cognitoService: CognitoService,
     private actRouter2:ActivatedRoute,
     private location: Location
     , private destinosService: DestinosService) {
@@ -38,6 +40,11 @@ export class AgregarActividadComponent implements OnInit {
   }
   ngOnInit(): void {
   
+  }
+  signOutCognito() {
+    this.cognitoService.signOut().then(() => {
+      this.router.navigate(['/iniciar-sesion']);
+    })
   }
   agregarActividad() {
     

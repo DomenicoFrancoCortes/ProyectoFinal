@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DestinosService } from '../../services/destinos.service';
 import { Destino, DestinoJson } from '../../models/destino'
+import { CognitoService } from 'src/app/services/cognito.service';
 
 interface DestinoJ {
   ID_TEMPO: number;
@@ -35,6 +36,7 @@ export class DestinosComponent implements OnInit {
   constructor(
     public destinosService: DestinosService,
     private router2: Router,
+    private cognitoService: CognitoService,
     private router: ActivatedRoute
   ) {
     this.router.queryParams.subscribe(params => {
@@ -73,6 +75,11 @@ export class DestinosComponent implements OnInit {
           console.error('Error al obtener destinos: ', error);
         }
       );
+  }
+  signOutCognito() {
+    this.cognitoService.signOut().then(() => {
+      this.router2.navigate(['/iniciar-sesion']);
+    })
   }
 
   irDestino(destinoId: number) {

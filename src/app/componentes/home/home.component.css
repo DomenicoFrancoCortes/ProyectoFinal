@@ -1,6 +1,58 @@
-main{
+main {
     width: 100%;
 }
+.landing-page{
+    
+    background: url('../../../assets/img/BuenosAires-1815x1200.jpg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+nav{
+     /* Opacidad del fondo del navbar */
+    padding: 15px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.nav-item a:hover {
+    
+    color: #fff;
+}
+
+
+.titulo{
+margin: auto;
+color: #fff;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin: auto;
+    color: #fff;
+}
+
+
+
+.descripcion {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+
 h1 {
     text-align: center;
 }
@@ -8,6 +60,7 @@ h1 {
 div.estaciones {
     text-align: center;
 }
+
 /*
 .polaroid {
     width: 30%;
@@ -56,13 +109,15 @@ div.estaciones {
     padding: 10px;
     width: 100%;
     margin: auto;
-    cursor: pointer;   
+    cursor: pointer;
 }
-.polaroid:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+
+.polaroid:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
     transform: translateY(-3%);
 }
-.lead{
+
+.lead {
     display: flex;
     height: 80%;
     align-items: center;
@@ -73,23 +128,26 @@ div.estaciones {
     width: 100%;
 }
 
-.navigation{
+.navigation {
     width: 100%;
 
 }
-.nombreUsuario{
+
+.nombreUsuario {
     margin-left: 15px;
     text-transform: uppercase;
     font-weight: bold;
 }
-img.logout{
-width: 25px;
-border-radius: 50px;
-float: left;
+
+img.logout {
+    width: 25px;
+    border-radius: 50px;
+    float: left;
 }
-.logout{
+
+.logout {
     font-size: .8em;
-    
+
     right: -18px;
     bottom: -4px;
     overflow: hidden;
@@ -97,7 +155,8 @@ float: left;
     cursor: pointer;
 
 }
-.button{
+
+.button {
     text-decoration: none;
     float: right;
     padding: 12px;
@@ -105,7 +164,7 @@ float: left;
     color: rgb(12, 12, 12);
     width: 100px;
     font-family: 'Poppins', sans-serif;
-    background-image: linear-gradient(to right,  #54adff,#4d9ce6,#4996dd);
+    background-image: linear-gradient(to right, #54adff, #4d9ce6, #4996dd);
     overflow: hidden;
     border-radius: 6px;
     margin-right: 15px;
@@ -113,132 +172,154 @@ float: left;
     text-align: center;
     font-weight: bold;
 }
-.button:hover{
-    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+
+.button:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
     color: #fff;
 }
 
 
-.user-content{
+.user-content {
     padding: 100px;
-    
+
 }
-.btn{
+
+.btn {
     display: flex;
     justify-content: center;
     align-items: center;
-	width: 120px;
-    height: 30px;
-    border-radius: 20px;
-    float: left;
-	outline: none;
-	border: none;
-	background-image: linear-gradient(to right,  #54adff,#4d9ce6,#4996dd);
-	background-size: 200%;
-	font-size: 1.2rem;
-	margin-left: 15px;
-	font-family: 'Poppins', sans-serif;
-	text-transform: uppercase;
-	margin: 1rem 0;
-	cursor: pointer;
-	
-  
-}
-
-.btn a{
-    text-decoration: none;
-    color: black;
-    transition: .5s;
-}
-.btn a:hover{
-	background-position: right;
-    color: #fff;
-}
-footer{
-    display: flex;
-    /* align-content: center; */
-    justify-content: center;
-
-}
-footer p {
-    margin-right: 15px;
-}
-footer p a{
-    text-decoration: none;
-    color: #4996dd;
-    transition: .5s;
-}
-footer p a:hover{
-    color: #080808;
-}
-
-@media (max-width: 400px) {
-    .polaroid{
-        width: 60%;
-    }
-    .polaroidVer{
-        width: 60%;
-    }
-    .button{
-        padding: 0;
-    }
-    footer{
-        font-size: 10px;
-        
-    }
-    footer p a{
-        color: #4996dd;
-    }
-  }
-  @media (max-width: 415px) {
-    .polaroid{
-        width: 60%;
-    }
-    .polaroidVer{
-        width: 60%;
-    }
-    .button{
-        padding: 0;
-    }
-    footer{
-        font-size: 10px;
-    }
-    footer p a{
-        color: #4996dd;
-    }
-  }
-  @media (max-width: 280px) {
-    .btn{
-        display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90px;
+    width: 120px;
     height: 30px;
     border-radius: 20px;
     float: left;
     outline: none;
     border: none;
-    background-image: linear-gradient(to right, #54adff,#4d9ce6,#4996dd);
+    background-image: linear-gradient(to right, #54adff, #4d9ce6, #4996dd);
     background-size: 200%;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    margin-left: 15px;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     margin: 1rem 0;
     cursor: pointer;
-    }
-    .polaroid{
+
+
+}
+
+.btn a {
+    text-decoration: none;
+    color: black;
+    transition: .5s;
+}
+
+.btn a:hover {
+    background-position: right;
+    color: #fff;
+}
+
+footer {
+    display: flex;
+    /* align-content: center; */
+    justify-content: center;
+
+}
+
+footer p {
+    margin-right: 15px;
+}
+
+footer p a {
+    text-decoration: none;
+    color: #4996dd;
+    transition: .5s;
+}
+
+footer p a:hover {
+    color: #080808;
+}
+
+@media (max-width: 400px) {
+    .polaroid {
         width: 60%;
     }
-    .polaroidVer{
+
+    .polaroidVer {
         width: 60%;
     }
-    .button{
+
+    .button {
         padding: 0;
     }
-    footer{
-        font-size: 7.8px;
+
+    footer {
+        font-size: 10px;
+
     }
-    footer p a{
+
+    footer p a {
         color: #4996dd;
     }
-  }
+}
+
+@media (max-width: 415px) {
+    .polaroid {
+        width: 60%;
+    }
+
+    .polaroidVer {
+        width: 60%;
+    }
+
+    .button {
+        padding: 0;
+    }
+
+    footer {
+        font-size: 10px;
+    }
+
+    footer p a {
+        color: #4996dd;
+    }
+}
+
+@media (max-width: 280px) {
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 30px;
+        border-radius: 20px;
+        float: left;
+        outline: none;
+        border: none;
+        background-image: linear-gradient(to right, #54adff, #4d9ce6, #4996dd);
+        background-size: 200%;
+        font-size: 0.9rem;
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+        margin: 1rem 0;
+        cursor: pointer;
+    }
+
+    .polaroid {
+        width: 60%;
+    }
+
+    .polaroidVer {
+        width: 60%;
+    }
+
+    .button {
+        padding: 0;
+    }
+
+    footer {
+        font-size: 7.8px;
+    }
+
+    footer p a {
+        color: #4996dd;
+    }
+}

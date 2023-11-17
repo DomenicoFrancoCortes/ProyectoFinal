@@ -5,7 +5,7 @@
         <button class="btn"><a href="/favoritos">Favoritos</a></button>
     </div>
     <a class="button">
-        
+
         <div class="logout" (click)="signOutCognito()">
             Cerrar sesion
         </div>
@@ -33,7 +33,7 @@
     <div class="polaroid" (click)="irDestinos('P')">
         <img src="https://www.explica.me/__export/1648075844306/sites/debate/img/2022/03/23/disexo_sin_txtulo_-_2022-03-23t164937_796_1.png_554688468.png">
         <div class="contenedor" > Primavera </div>
-    </div> 
+    </div>
 </div>
 <footer>
     <p><b>Email: </b> {{emailUsuario}} </p>
@@ -41,45 +41,93 @@
 
 </footer> -->
 <main>
+    <section class="landing-page">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="../../../assets/img/mountain (1).png" alt="Logo" width="30" height="24"
+                        class="d-inline-block align-text-top">
+                    Nextrip
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
 
-    <h1>Estaciones</h1>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/nextrip">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/agregarDestino">Agregar Destino</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="collapse navbar-collapse" style="justify-content: end; cursor: pointer;" (click)="signOutCognito()">
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link disabled" >Desconectarse</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- <h1>Estaciones</h1>
     <div class="navigation">
         <p class="nombreUsuario"><b>BIENVENIDO: </b> {{nombreUsuario}} </p>
         <div style="    margin-left: 15px">
             <button class="btn"><a href="/favoritos">Favoritos</a></button>
         </div>
         <a class="button">
-            
+
             <div class="logout" (click)="signOutCognito()">
                 Cerrar sesion
             </div>
         </a>
-    </div>
+    </div> -->
 
-    <!-- Marketing messaging and featurettes
+        <!-- Marketing messaging and featurettes
 ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+       <div class="titulo">
+                <h1>Bienvenido {{nombreUsuario}}</h1>
+            </div>
+        <section class="contenedor container marketing">
+            
+            <div class="descripcion">
+                <p> Descubre tus Destinos y Actividades Favoritas
 
-    <div class="container marketing">
+                    En Nextrip, nos emociona llevarte a una aventura única en cada temporada del año. Explora destinos
+                    fascinantes
+                    y emocionantes actividades adaptadas a tus preferencias. Ya sea que busques la calidez del verano,
+                    la belleza del otoño,
+                    la magia del invierno o la frescura de la primavera, Nextrip tiene algo especial para cada viajero.
+                </p>
+            </div>
+        </section>
+    </section>
+    <section class="container marketing">
 
         <!-- Three columns of text below the carousel -->
-   
+
 
 
         <!-- START THE FEATURETTES -->
 
         <hr class="featurette-divider">
 
-        <div class="row featurette polaroid" (click)="irDestinos('V')" >
+        <div class="row featurette polaroid" (click)="irDestinos('V')">
             <div class="col-md-7 ">
-                <h2 class="featurette-heading fw-normal lh-1">Destinos<span
-                        class="text-body-secondary"> de Verano en Argentina</span></h2>
-                <p class="lead">Durante el verano argentino, puedes disfrutar del sol en las hermosas playas de la costa atlántica, como Mar del Plata y Pinamar. También es la temporada perfecta para explorar las sierras de Córdoba o 
+                <h2 class="featurette-heading fw-normal lh-1">Destinos<span class="text-body-secondary"> de Verano en
+                        Argentina</span></h2>
+                <p class="lead">Durante el verano argentino, puedes disfrutar del sol en las hermosas playas de la costa
+                    atlántica, como Mar del Plata y Pinamar. También es la temporada perfecta para explorar las sierras
+                    de Córdoba o
                     aventurarte en la región de Cuyo.</p>
             </div>
             <div class="col-md-5">
                 <img class="imagen" src="https://concepto.de/wp-content/uploads/2018/08/verano1-e1535637769656.jpg">
-                
+
             </div>
         </div>
 
@@ -87,13 +135,14 @@
 
         <div class="row featurette polaroid" (click)="irDestinos('I')">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading fw-normal lh-1">Destinos <span
-                        class="text-body-secondary"> de Otoño en Argentina</span></h2>
-                <p class="lead">En otoño, la Patagonia se tiñe de colores impresionantes con la caída de las hojas. Además, es un momento ideal para degustar los vinos de clase mundial en Mendoza o recorrer 
+                <h2 class="featurette-heading fw-normal lh-1">Destinos <span class="text-body-secondary"> de Otoño en
+                        Argentina</span></h2>
+                <p class="lead">En otoño, la Patagonia se tiñe de colores impresionantes con la caída de las hojas.
+                    Además, es un momento ideal para degustar los vinos de clase mundial en Mendoza o recorrer
                     las rutas del vino en Salta.</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <img class="imagen" src="https://concepto.de/wp-content/uploads/2022/10/otono-e1665266344782.jpg">  
+                <img class="imagen" src="https://concepto.de/wp-content/uploads/2022/10/otono-e1665266344782.jpg">
             </div>
         </div>
 
@@ -101,37 +150,42 @@
 
         <div class="row featurette polaroid" (click)="irDestinos('O')">
             <div class="col-md-7">
-                <h2 class="featurette-heading fw-normal lh-1">Destinos<span
-                        class="text-body-secondary"> de Invierno en Argentina</span></h2>
-                <p class="lead"> El invierno argentino es la temporada para los amantes de los deportes de invierno. Puedes esquiar en los centros de esquí de la cordillera de los Andes o relajarte en las 
+                <h2 class="featurette-heading fw-normal lh-1">Destinos<span class="text-body-secondary"> de Invierno en
+                        Argentina</span></h2>
+                <p class="lead"> El invierno argentino es la temporada para los amantes de los deportes de invierno.
+                    Puedes esquiar en los centros de esquí de la cordillera de los Andes o relajarte en las
                     cálidas aguas termales de Entre Ríos.</p>
             </div>
             <div class="col-md-5">
-                <img class="imagen" src="https://i0.wp.com/www.escuelaayurveda.com/wp-content/uploads/2023/02/salud-en-invierno.jpg?w=1174&ssl=1">            </div>
+                <img class="imagen"
+                    src="https://i0.wp.com/www.escuelaayurveda.com/wp-content/uploads/2023/02/salud-en-invierno.jpg?w=1174&ssl=1">
+            </div>
         </div>
-    
+
 
         <hr class="featurette-divider">
         <div class="row featurette polaroid" (click)="irDestinos('P')">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading fw-normal lh-1">Destinos<span
-                        class="text-body-secondary"> de Primavera en Argentina</span></h2>
-                <p class="lead">La primavera trae consigo la explosión de flores en lugares como la Quebrada de Humahuaca en Jujuy. También es un buen momento para aventurarte en la selva misionera, donde la 
+                <h2 class="featurette-heading fw-normal lh-1">Destinos<span class="text-body-secondary"> de Primavera en
+                        Argentina</span></h2>
+                <p class="lead">La primavera trae consigo la explosión de flores en lugares como la Quebrada de
+                    Humahuaca en Jujuy. También es un buen momento para aventurarte en la selva misionera, donde la
                     naturaleza se despierta con todo su esplendor.</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <img class="imagen" src="https://www.explica.me/__export/1648075844306/sites/debate/img/2022/03/23/disexo_sin_txtulo_-_2022-03-23t164937_796_1.png_554688468.png">
+                <img class="imagen"
+                    src="https://www.explica.me/__export/1648075844306/sites/debate/img/2022/03/23/disexo_sin_txtulo_-_2022-03-23t164937_796_1.png_554688468.png">
             </div>
         </div>
 
         <!-- /END THE FEATURETTES -->
 
-    </div><!-- /.container -->
+    </section><!-- /.container -->
 
     <footer>
         <p><b>Email: </b> {{emailUsuario}} </p>
         <p>Derechos de autor &copy; 2023 | <a href="/nextrip">NexTrip</a></p>
-    
+
     </footer>
-   
+
 </main>

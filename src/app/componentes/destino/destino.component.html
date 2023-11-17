@@ -1,5 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img  src="../../../assets/img/mountain (1).png" alt="Logo" width="30" height="24"
+                class="d-inline-block align-text-top">
+            Nextrip
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/nextrip">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/agregarDestino">Agregar Destino</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="collapse navbar-collapse" style="justify-content: end; cursor: pointer;" (click)="signOutCognito()">
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link disabled" >Desconectarse</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="contenedor" >
-    <h1>{{datos_dest[0].DEST_NOMBRE}}</h1>
+    <h1 style="margin-top: 60px;">{{datos_dest[0].DEST_NOMBRE}}</h1>
 
     <p><b>Descripcion: </b> {{datos_dest[0].DEST_DESC}}</p>
 
@@ -26,7 +55,7 @@
 
      
     <div class="imagenes">
-        <img class="img" *ngFor="let img of imagenes" src={{img}} alt="Destino">
+        <img class="imagen" *ngFor="let img of imagenes" src={{img}} alt="Destino">
     </div> 
     
     

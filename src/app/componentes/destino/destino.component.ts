@@ -81,7 +81,11 @@ export class DestinoComponent implements OnInit {
         }
       );
   }
-  
+  signOutCognito() {
+    this.cognitoService.signOut().then(() => {
+      this.router.navigate(['/iniciar-sesion']);
+    })
+  }
   private getUserDetails() {
     this.cognitoService.getUser().then((user: any) => {
       this.user = user;
